@@ -31,10 +31,10 @@ export default function HeroSlider() {
             width={1600}
             height={900}
           />
-          <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
-            <h1 className="text-white text-4xl md:text-6xl font-bold">
+          <div className="absolute inset-0  flex items-center justify-center">
+            {/* <h1 className="text-white text-4xl md:text-6xl font-bold">
               Studio Foto Singaraja
-            </h1>
+            </h1> */}
           </div>
         </SwiperSlide>
       ))}

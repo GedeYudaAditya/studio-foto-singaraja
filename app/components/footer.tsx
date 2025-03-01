@@ -1,3 +1,6 @@
+import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 const Footer = () => {
     return (
       <footer className="bg-gray-200 py-10">
@@ -15,13 +18,13 @@ const Footer = () => {
               </p>
               <div className="flex space-x-3 mt-4">
                 <span className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-                  📷
+                  <FontAwesomeIcon icon={faInstagram} />
                 </span>
                 <span className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-                  💬
+                  <FontAwesomeIcon icon={faWhatsapp} />
                 </span>
                 <span className="w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center">
-                  👥
+                  <FontAwesomeIcon icon={faFacebook} />
                 </span>
               </div>
             </div>

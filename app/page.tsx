@@ -1,14 +1,11 @@
 // import Image from "next/image";
 import Image from "next/image";
 import HeroSlider from "./components/HeroSlider";
-import Navbar from "./components/navbar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBookmark, faCalendarAlt, faShieldAlt } from "@fortawesome/free-solid-svg-icons";
-import Footer from "./components/footer";
 export default function Home() {
   return (
-    <div>
-      <Navbar />
+    <>
       <HeroSlider />
       {/* 2 column */}
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 px-10 md:px-32 py-20 items-center">
@@ -108,7 +105,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Bagian Teks */}
           <div>
-            <h2 className="text-xl font-bold text-blue-700 mb-2">
+            <h2 className="text-xl font-bold text-black mb-2">
               Hasil Foto Memuaskan
             </h2>
             <p className="text-gray-600 mb-6">
@@ -131,35 +128,15 @@ export default function Home() {
           </div>
 
           {/* Bagian Gambar */}
-          <div className="flex justify-center">
-            <div className="grid grid-cols-2 gap-4 max-w-md relative">
-              <div className="col-span-2">
-                <img
-                  src="https://placehold.co/500x600/FF0000/FFFFFF"
-                  alt="Couple"
-                  className="w-full max-w-xs object-cover rounded-lg shadow-lg mx-auto"
-                />
-              </div>
-              <div className="col-span-1">
-                <img
-                  src="https://placehold.co/500x600/0000FF/FFFFFF"
-                  alt="Graduation"
-                  className="w-full max-w-xs object-cover rounded-lg shadow-lg mx-auto"
-                />
-              </div>
-              <div className="col-span-1">
-                <img
-                  src="https://placehold.co/500x600/00FF00/FFFFFF"
-                  alt="Friends"
-                  className="w-full max-w-xs object-cover rounded-lg shadow-lg mx-auto"
-                />
-              </div>
-            </div>
+          <div className="flex justify-center mt-6 md:mt-0 p-10">
+              <img
+                  src="/img/image.png"
+                  alt="Click Kamera"
+                  className="w-48 md:w-full"
+              />
           </div>
         </div>
       </section>
-
-      <Footer />
-    </div>
+    </>
   );
 }
