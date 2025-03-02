@@ -1,7 +1,15 @@
+"use client";
 import { faFacebook, faInstagram, faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { usePathname } from "next/navigation";
 
 const Footer = () => {
+  const pathname = usePathname(); // Ambil path halaman saat ini
+    const isAdminPage = pathname.startsWith("/dashboard"); // Cek apakah path mengandung "/admin"
+  
+    if (isAdminPage) {
+      return null;
+    }
     return (
       <footer className="bg-gray-200 py-10">
         <div className="max-w-6xl mx-auto px-6">

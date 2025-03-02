@@ -3,10 +3,17 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useAuth } from "../context/AuthContext";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
 
+  const pathname = usePathname(); // Ambil path halaman saat ini
+  const isAdminPage = pathname.startsWith("/dashboard"); // Cek apakah path mengandung "/admin"
+
+  if (isAdminPage) {
+    return null;
+  }
   return (
     <nav className="bg-white shadow-md sticky w-full z-10">
       <div className="max-w-6xl mx-auto px-4">

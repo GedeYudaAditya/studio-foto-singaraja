@@ -39,9 +39,9 @@ export default function ProfilePage() {
         <h3 className="mt-4 text-lg font-semibold">{user.name}</h3>
         <p className="text-gray-600">{user.email}</p>
         
-        <button className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
+        <a href='/history' className="mt-4 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
           History Pemesanan
-        </button>
+        </a>
       </div>
     </div>
   );
