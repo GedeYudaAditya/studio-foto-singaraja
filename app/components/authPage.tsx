@@ -71,17 +71,18 @@ const AuthPage = ({ type }: { type: "login" | "register" }) => {
           </button>
         </form>
 
-        <p className="text-center text-sm mt-4">
+        <div className="text-center text-sm mt-4">
           {type === "login" ? (
             <>
-              Belum Punya Akun? <Link href="/auth/register" className="text-blue-600">Daftar Sekarang</Link>
+              <p>Belum Punya Akun? <Link href="/auth/register" className="text-blue-600">Daftar Sekarang</Link></p>
+              <p>Lupa password? <Link href="/auth/register" className="text-blue-600">Reset Password</Link></p>
             </>
           ) : (
-            <>
+            <p>
               Sudah Punya Akun? <Link href="/auth/login" className="text-blue-600">Masuk Sekarang</Link>
-            </>
+            </p>
           )}
-        </p>
+        </div>
       </div>
     </div>
   );

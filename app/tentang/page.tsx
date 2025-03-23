@@ -40,7 +40,7 @@ const Tentang = () => {
             
             {/* Layanan Kami */}
             <section>
-                <div className="flex flex-col md:flex-row items-center md:items-start justify-between">
+                <div className="flex flex-col-reverse md:flex-row items-center md:items-start justify-between">
                     <div className="md:w-1/2 text-left space-y-3 m-auto">
                         <h3 className="text-3xl font-light">Studio Foto Singaraja</h3>
                         <p className="text-gray-600 text-sm">
@@ -72,7 +72,7 @@ const Tentang = () => {
                         </p>
                     </div>
                 </div>
-                <div className="flex flex-col md:flex-row items-center md:items-start justify-between">
+                <div className="flex flex-col-reverse md:flex-row items-center md:items-start justify-between">
                     <div className="md:w-1/2 text-left space-y-3 m-auto">
                         <h3 className="text-3xl font-light">Sewa Kamera Singaraja</h3>
                         <p className="text-gray-600 text-sm">

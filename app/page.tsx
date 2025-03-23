@@ -64,7 +64,7 @@ export default function Home() {
           <h2 className="text-2xl font-bold text-black mb-8">
             Boking Mudah Menggunakan Website
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
             {/* Card 1 */}
             <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center">
               <div className="bg-blue-600 text-white p-4 rounded-full mb-4">

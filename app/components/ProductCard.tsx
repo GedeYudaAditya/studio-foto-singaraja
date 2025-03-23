@@ -13,13 +13,13 @@ const formatHarga = (price: number) => {
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
-    <div className="bg-white shadow-lg rounded-xl flex flex-col items-center text-center hover:shadow-xl transition-all border border-black">
+    <div className="bg-white shadow-md rounded-xl flex flex-col items-center text-center hover:shadow-xl transition-all">
       <Image
         src={product.image}
         alt={product.title}
         width={300}
         height={200}
-        className="rounded-lg object-cover mb-4 border border-x-0 border-t-0 border-black"
+        className="rounded-lg object-cover mb-4"
       />
       <div className="p-4 w-full h-full flex flex-col justify-between">
         <h3 className="font-semibold text-lg">{product.title}</h3>

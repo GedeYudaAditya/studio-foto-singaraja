@@ -44,19 +44,19 @@ const images = [
 ];
 
 const Porftofolio = () => {
-    const [activeCategory, setActiveCategory] = useState('studio');
+  const [activeCategory, setActiveCategory] = useState('studio');
 
   return (
-    <div className="max-w-4xl mx-auto text-center p-6 my-10">
-      <h2 className="text-3xl font-bold mb-4">Galeri Kami</h2>
-      <div className="flex justify-center space-x-4 mb-6">
+    <div className="max-w-5xl mx-auto text-center p-4 sm:p-6 my-10">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-6">Galeri Kami</h2>
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
         {categories.map((category) => (
           <button
             key={category.id}
             className={`px-4 py-2 rounded-md font-medium transition-all ${
               activeCategory === category.id
                 ? 'bg-blue-600 text-white'
-                : 'bg-gray-200 text-gray-800 hover:bg-gray-300'
+                : 'text-gray-800 hover:text-blue-500'
             }`}
             onClick={() => setActiveCategory(category.id)}
           >
@@ -64,7 +64,7 @@ const Porftofolio = () => {
           </button>
         ))}
       </div>
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-4">
         {images
           .filter((img) => img.category === activeCategory)
           .map((img, index) => (
@@ -72,7 +72,7 @@ const Porftofolio = () => {
               key={index}
               src={img.src}
               alt="Gallery Image"
-              className="w-full h-48 object-cover rounded-lg border-2 border-transparent hover:border-blue-500"
+              className="w-full h-40 sm:h-48 object-cover rounded-lg border-2 border-transparent hover:border-blue-500"
             />
           ))}
       </div>
