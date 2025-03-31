@@ -11,21 +11,21 @@ export default function Home() {
       <section className="grid grid-cols-1 md:grid-cols-2 gap-8 px-10 md:px-32 py-20 items-center">
         {/* Text Section */}
         <div className="text-black">
-          <h1 className="text-4xl font-bold mb-4">Promo Spesial!</h1>
-          <p className="text-lg mb-6">
+          <h1 className="text-4xl font-bold mb-4" data-aos="fade-right">Promo Spesial!</h1>
+          <p className="text-lg mb-6" data-aos="fade-right">
             Nikmati penawaran spesial dari Studio Foto Singaraja. Dapatkan diskon 20% 
             untuk paket foto tertentu. Jangan lewatkan kesempatan ini untuk mengabadikan
             momen berharga Anda dengan harga terbaik.
           </p>
           
           {/* Button */}
-          <button className="bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
+          <button data-aos="fade-right" className="bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-blue-600 transition duration-300">
             Lihat Promo
           </button>
         </div>
 
         {/* Image Section */}
-        <div className="flex justify-center">
+        <div className="flex justify-center" data-aos="fade-left">
           <Image 
             src="/img/banner/banner2.png" 
             alt="Promo Camera Studio" 
@@ -39,8 +39,8 @@ export default function Home() {
 
       <section className="py-20 text-black">
         <div className="text-center">
-          <small className="text-gray-500 mb-3 block uppercase tracking-widest">BOKING SUPPORT</small>
-          <h1 className="text-3xl mb-6 font-bold">Layanan Kami</h1>
+          <small className="text-gray-500 mb-3 block uppercase tracking-widest" data-aos="zoom-in-down">BOKING SUPPORT</small>
+          <h1 className="text-3xl mb-6 font-bold" data-aos="zoom-in-down">Layanan Kami</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 px-10 md:px-20">
             {[
@@ -49,7 +49,7 @@ export default function Home() {
               { title: "Foto Box", img: "/img/foto/foto3.png", desc: "Abadikan momen seru Anda dengan teman-teman dalam sesi foto box yang menyenangkan." },
               { title: "Frame Foto", img: "/img/foto/foto4.png", desc: "Bingkai foto custom untuk kenangan spesial Anda dengan berbagai pilihan desain." },
             ].map((item, index) => (
-              <div key={index} className="bg-white shadow-lg rounded-xl p-6 text-center">
+              <div key={index} className="bg-white shadow-lg rounded-xl p-6 text-center" data-aos="flip-left">
                 <img src={item.img} alt={item.title} className="w-full h-40 object-cover rounded-lg mb-4" />
                 <h2 className="text-xl font-bold">{item.title}</h2>
                 <p className="text-gray-600">{item.desc}</p>
@@ -61,12 +61,12 @@ export default function Home() {
 
       <section className="bg-gray-100 py-16 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <h2 className="text-2xl font-bold text-black mb-8">
+          <h2 className="text-2xl font-bold text-black mb-8" data-aos="zoom-in-down">
             Boking Mudah Menggunakan Website
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-center">
             {/* Card 1 */}
-            <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center">
+            <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center" data-aos="fade-right">
               <div className="bg-blue-600 text-white p-4 rounded-full mb-4">
                 <FontAwesomeIcon icon={faCalendarAlt} className="text-2xl" />
               </div>
@@ -77,7 +77,7 @@ export default function Home() {
             </div>
 
             {/* Card 2 */}
-            <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center">
+            <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center" data-aos="zoom-out">
               <div className="bg-red-600 text-white p-4 rounded-full mb-4">
                 <FontAwesomeIcon icon={faShieldAlt} className="text-2xl" />
               </div>
@@ -88,7 +88,7 @@ export default function Home() {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center">
+            <div className="bg-white p-6 rounded-2xl shadow-md flex flex-col items-center text-center" data-aos="fade-left">
               <div className="bg-orange-400 text-white p-4 rounded-full mb-4">
                 <FontAwesomeIcon icon={faBookmark} className="text-2xl" />
               </div>
@@ -105,30 +105,30 @@ export default function Home() {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Bagian Teks */}
           <div>
-            <h2 className="text-xl font-bold text-black mb-2">
+            <h2 className="text-xl font-bold text-black mb-2" data-aos="fade-right">
               Hasil Foto Memuaskan
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6" data-aos="fade-right">
               Kami selalu menjaga kualitas dari produk yang kita berikan, demi mendapatkan kepuasan dari anda.
             </p>
 
-            <h2 className="text-xl font-bold text-black mb-2">
+            <h2 className="text-xl font-bold text-black mb-2" data-aos="fade-right">
               Pengalaman Tak Terlupakan
             </h2>
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6" data-aos="fade-right">
               Ayo datanglah ke studio foto Singaraja dan rasakan sensasi yang tak terlupakan dari pelayanan kami.
             </p>
 
-            <h2 className="text-xl font-bold text-black mb-2">
+            <h2 className="text-xl font-bold text-black mb-2" data-aos="fade-right">
               Harga Terjangkau
             </h2>
-            <p className="text-gray-600">
+            <p className="text-gray-600" data-aos="fade-right">
               Kami memberikan harga yang murah dan kualitas terjamin. Jadi tunggu apa lagi? Segera booking studio foto Singaraja.
             </p>
           </div>
 
           {/* Bagian Gambar */}
-          <div className="flex justify-center mt-6 md:mt-0 p-10">
+          <div className="flex justify-center mt-6 md:mt-0 p-10" data-aos="fade-left">
               <img
                   src="/img/image.png"
                   alt="Click Kamera"

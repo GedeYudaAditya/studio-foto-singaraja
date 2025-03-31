@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useSearchParams } from "next/navigation";
+import TimePicker from '../components/TimePicker';
 
 const products = [
     { image: '/img/card/studio/image.png', category: 'studio', title: 'foto studio 1-2 orang + bebas pilih background', price: 100000, id: 1},
@@ -89,12 +90,13 @@ export default function Checkout() {
         <input id="foto" type="file" className="border p-2 rounded w-full" accept="image/*" />
       </div>
     ) : (
-      <div>
-        <label htmlFor="jam" className="block text-sm font-medium text-gray-700">
-          Pilih Jam
-        </label>
-        <input id="jam" type="time" className="border p-2 rounded w-full" />
-      </div>
+      // <div>
+      //   <label htmlFor="jam" className="block text-sm font-medium text-gray-700">
+      //     Pilih Jam
+      //   </label>
+      //   <input id="jam" type="time" className="border p-2 rounded w-full" />
+      // </div>
+      <TimePicker />
     )}
   </div>
 

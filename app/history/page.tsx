@@ -16,16 +16,32 @@ export default function OrderHistory() {
           price: 100000,
           imgSrc: "/img/image.png", // Ganti path jika perlu
       },
+      {
+          id: 3,
+          status: "Declined", // Bisa jadi "Pending", "Diproses", dll.
+          payment: "COD",
+          title: "Foto Studio 1-2 orang + bebas pilih background",
+          price: 100000,
+          imgSrc: "/img/image.png", // Ganti path jika perlu
+      },
+      {
+          id: 4,
+          status: "Accapted", // Bisa jadi "Pending", "Diproses", dll.
+          payment: "COD",
+          title: "Foto Studio 1-2 orang + bebas pilih background",
+          price: 100000,
+          imgSrc: "/img/image.png", // Ganti path jika perlu
+      },
   ];
 
   return (
       <div className="max-w-3xl mx-auto p-4">
-          <h1 className="text-2xl font-bold text-center mb-4">Riwayat Pesanan</h1>
+          <h1 className="text-2xl font-bold text-center mb-4 mt-20">Riwayat Pesanan</h1>
           <div className="space-y-4">
               {orders.map((order) => (
                   <div key={order.id} className="border rounded-lg overflow-hidden shadow-lg">
                       <div className="flex justify-between bg-gray-100 p-2 border-b">
-                          <span className={`font-semibold ${order.status === "Selesai" ? "text-green-600" : "text-yellow-600"}`}>
+                          <span className={`font-semibold ${order.status === "Selesai" || order.status === "Accapted" ? "text-green-600" : (order.status === "Prosses" ? "text-yellow-600" : "text-red-600")}`}>
                               {order.status}
                           </span>
                           <span className="text-gray-600">{order.payment}</span>

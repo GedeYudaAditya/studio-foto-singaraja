@@ -16,20 +16,20 @@ const images = [
   { image: '/img/card/studio/image-2.png', category: 'studio', title: 'foto studio 3-7 orang + bebas pilih background', price: 140000, id: 2 },
   { image: '/img/card/studio/image-4.png', category: 'studio', title: 'foto graduation 1-2 orang + background', price: 140000, id: 3 },
   { image: '/img/card/studio/image-1.png', category: 'studio', title: 'foto graduation 3-7 orang + background', price: 160000, id: 4 },
-  { image: '/img/card/studio/image-3.png', category: 'studio', title: 'Foto ijasah latar merah', price: 50000, id: 1 },
+  { image: '/img/card/studio/image-3.png', category: 'studio', title: 'Foto ijasah latar merah', price: 50000, id: 5 },
 
-  { image: '/img/card/camera/d700.png', category: 'camera', title: 'Canon EOS 700D (DSLR)', price: 100000, id: 5 },
-  { image: '/img/card/camera/d1300.png', category: 'camera', title: 'Canon EOS 1300D (DSLR)', price: 140000, id: 6 },
-  { image: '/img/card/camera/image-1.png', category: 'camera', title: 'Sony Alpa mark 1 (DSLR)', price: 140000, id: 7 },
-  { image: '/img/card/camera/image.png', category: 'camera', title: 'Sony Alpa 6400 (Miroles)', price: 160000, id: 8 },
+  { image: '/img/card/camera/d700.png', category: 'camera', title: 'Canon EOS 700D (DSLR)', price: 100000, id: 6 },
+  { image: '/img/card/camera/d1300.png', category: 'camera', title: 'Canon EOS 1300D (DSLR)', price: 140000, id: 7 },
+  { image: '/img/card/camera/image-1.png', category: 'camera', title: 'Sony Alpa mark 1 (DSLR)', price: 140000, id: 8 },
+  { image: '/img/card/camera/image.png', category: 'camera', title: 'Sony Alpa 6400 (Miroles)', price: 160000, id: 9 },
 
-  { image: '/img/card/box/image.png', category: 'box', title: 'Foto Box Hige Angle Photography', price: 100000, id: 9 },
-  { image: '/img/card/box/image-1.png', category: 'box', title: 'Foto Box 1-2 orang + bebas pilih backgroung', price: 100000, id: 10 },
-  { image: '/img/card/box/image-2.png', category: 'box', title: 'Foto Box 3-4 orang + bebas pilih backgroun ', price: 120000, id: 11 },
+  { image: '/img/card/box/image.png', category: 'box', title: 'Foto Box Hige Angle Photography', price: 100000, id: 10 },
+  { image: '/img/card/box/image-1.png', category: 'box', title: 'Foto Box 1-2 orang + bebas pilih backgroung', price: 100000, id: 11 },
+  { image: '/img/card/box/image-2.png', category: 'box', title: 'Foto Box 3-4 orang + bebas pilih backgroun ', price: 120000, id: 12 },
 
-  { image: '/img/card/frame/image.png', category: 'frame', title: 'Frame foto 4R + bingkai foto', price: 40000, id: 12 },
-  { image: '/img/card/frame/image-1.png', category: 'frame', title: 'Frame foto 5R + bingkai foto', price: 50000, id: 13 },
-  { image: '/img/card/frame/image-2.png', category: 'frame', title: 'Frame foto 8R + bingkai foto', price: 70000, id: 14 },
+  { image: '/img/card/frame/image.png', category: 'frame', title: 'Frame foto 4R + bingkai foto', price: 40000, id: 13 },
+  { image: '/img/card/frame/image-1.png', category: 'frame', title: 'Frame foto 5R + bingkai foto', price: 50000, id: 14 },
+  { image: '/img/card/frame/image-2.png', category: 'frame', title: 'Frame foto 8R + bingkai foto', price: 70000, id: 15 },
 ];
 
 const ProdukDetail = () => {
@@ -56,9 +56,9 @@ const ProdukDetail = () => {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-10 text-center my-10">
-      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">Produk Kami</h2>
-      <div className="flex flex-wrap justify-center gap-4 mb-8">
+    <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-10 text-center mb-10">
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 mt-20" data-aos="zoom-in-down">Produk Kami</h2>
+      <div className="flex flex-wrap justify-center gap-4 mb-8" data-aos="zoom-in-down">
         {categories.map((category) => (
           <button
             key={category.id}

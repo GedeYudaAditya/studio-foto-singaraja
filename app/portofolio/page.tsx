@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useState } from 'react';
 
 const categories = [
@@ -45,11 +46,26 @@ const images = [
 
 const Porftofolio = () => {
   const [activeCategory, setActiveCategory] = useState('studio');
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const filteredImages = images.filter((img) => img.category === activeCategory);
+
+  const nextImage = () => {
+    if (selectedIndex !== null && selectedIndex < filteredImages.length - 1) {
+      setSelectedIndex(selectedIndex + 1);
+    }
+  };
+
+  const prevImage = () => {
+    if (selectedIndex !== null && selectedIndex > 0) {
+      setSelectedIndex(selectedIndex - 1);
+    }
+  };
 
   return (
-    <div className="max-w-5xl mx-auto text-center p-4 sm:p-6 my-10">
-      <h2 className="text-3xl sm:text-4xl font-bold mb-6">Galeri Kami</h2>
-      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6">
+    <div className="max-w-5xl mx-auto text-center p-4 sm:p-6 mb-10">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-6 mt-20" data-aos="zoom-in-down">Galeri Kami</h2>
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6" data-aos="zoom-in-down">
         {categories.map((category) => (
           <button
             key={category.id}
@@ -69,13 +85,52 @@ const Porftofolio = () => {
           .filter((img) => img.category === activeCategory)
           .map((img, index) => (
             <img
+              data-aos="flip-right"
               key={index}
               src={img.src}
               alt="Gallery Image"
               className="w-full h-40 sm:h-48 object-cover rounded-lg border-2 border-transparent hover:border-blue-500"
+              onClick={() => setSelectedIndex(index)}
             />
           ))}
       </div>
+
+      {/* Modal untuk preview gambar dengan navigasi */}
+      {selectedIndex !== null && (
+        <div className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50">
+          <div className="relative p-4 max-w-lg w-full">
+            <button
+              className="absolute top-2 right-2 text-white text-2xl font-bold"
+              onClick={() => setSelectedIndex(null)}
+            >
+              &times;
+            </button>
+            <div className="flex items-center">
+              <button
+                className="text-white text-3xl px-4"
+                onClick={prevImage}
+                disabled={selectedIndex === 0}
+              >
+                &#10094;
+              </button>
+              <Image
+                src={filteredImages[selectedIndex].src}
+                alt="Preview"
+                width={600}
+                height={400}
+                className="w-full h-auto rounded-lg"
+              />
+              <button
+                className="text-white text-3xl px-4"
+                onClick={nextImage}
+                disabled={selectedIndex === filteredImages.length - 1}
+              >
+                &#10095;
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

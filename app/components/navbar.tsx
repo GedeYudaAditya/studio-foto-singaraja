@@ -18,7 +18,7 @@ export default function Navbar() {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   return (
-    <nav className="bg-white shadow-md sticky w-full z-10">
+    <nav className="bg-white shadow-md fixed w-full z-10">
       <div className="max-w-6xl mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}

@@ -16,6 +16,7 @@ export default function StudioFotoTable({ title = "Studio Foto" }: StudioFotoTab
         tanggal: "20-03-2025",
         jadwal: "10.00-11.00",
         pembayaran: "COD",
+        status: "Selesai",
     },
     {
         id: 2,
@@ -24,6 +25,7 @@ export default function StudioFotoTable({ title = "Studio Foto" }: StudioFotoTab
         tanggal: "20-03-2025",
         jadwal: "10.00-11.00",
         pembayaran: "COD",
+        status: "Batal",
     },
     {
         id: 3,
@@ -32,6 +34,7 @@ export default function StudioFotoTable({ title = "Studio Foto" }: StudioFotoTab
         tanggal: "20-03-2025",
         jadwal: "10.00-11.00",
         pembayaran: "COD",
+        status: "Selesai",
     },
     {
         id: 4,
@@ -40,6 +43,7 @@ export default function StudioFotoTable({ title = "Studio Foto" }: StudioFotoTab
         tanggal: "20-03-2025",
         jadwal: "10.00-11.00",
         pembayaran: "COD",
+        status: "Batal",
     },
   ];
 
@@ -74,7 +78,7 @@ export default function StudioFotoTable({ title = "Studio Foto" }: StudioFotoTab
               <th className="p-3">Tanggal</th>
               <th className="p-3">Jadwal</th>
               <th className="p-3">Pembayaran</th>
-              <th className="p-3">Hapus</th>
+              <th className="p-3">{title === "Pesanan Masuk" ? "Status" : "Opsi"}</th>
             </tr>
           </thead>
           <tbody>
@@ -85,10 +89,22 @@ export default function StudioFotoTable({ title = "Studio Foto" }: StudioFotoTab
                 <td className="p-3">{item.tanggal}</td>
                 <td className="p-3">{item.jadwal}</td>
                 <td className="p-3">{item.pembayaran}</td>
-                <td className="p-3 flex justify-center space-x-2">
-                  <button className="bg-red-500 text-white px-4 py-1 rounded-md">Hapus</button>
-                  <button className="bg-green-500 text-white px-4 py-1 rounded-md" onClick={() => goToDetail(item, title)}>Lihat</button>
-                </td>
+                {title === "Pesanan Masuk" ? (
+                  <td className="p-3">
+                    <span
+                      className={`px-2 py-1 rounded-md ${
+                        item.status === "Selesai" ? "bg-green-500 text-white" : "bg-red-500 text-white"
+                      }`}
+                    >
+                      {item.status}
+                    </span>
+                  </td>
+                ) : (
+                  <td className="p-3 flex justify-center space-x-2">
+                    <button className="bg-red-500 text-white px-4 py-1 rounded-md">Hapus</button>
+                    <button className="bg-green-500 text-white px-4 py-1 rounded-md" onClick={() => goToDetail(item, title)}>Lihat</button>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>

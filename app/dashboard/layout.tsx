@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { faBars, faBox, faCamera, faDashboard, faImage, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faBox, faCamera, faDashboard, faDownload, faImage, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -17,6 +17,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     "Sewa Kamera": faImage,
     "Foto Box": faBox,
     "Frame Foto": faImage,
+    "Pesanan Masuk": faDownload,
   };
 
   // Menentukan menu berdasarkan URL saat pertama kali dimuat
@@ -29,6 +30,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       setSelectedMenu("Foto Box");
     } else if (pathname.includes("frame-foto")) {
       setSelectedMenu("Frame Foto");
+    } else if (pathname.includes("pesanan-masuk")) {
+      setSelectedMenu("Pesanan Masuk");
     } else {
       setSelectedMenu("Dashboard");
     }
@@ -76,7 +79,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
         <nav className="mt-6">
           <ul>
-            {["Dashboard", "Studio Foto", "Sewa Kamera", "Foto Box", "Frame Foto"].map((menu) => (
+            {["Dashboard", "Studio Foto", "Sewa Kamera", "Foto Box", "Frame Foto", "Pesanan Masuk"].map((menu) => (
               <li
                 key={menu}
                 className={`p-3 rounded-md mb-2 cursor-pointer flex items-center ${

@@ -56,10 +56,10 @@ export default function Cart() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 p-4">
-      <h1 className="text-2xl font-bold mb-6">Keranjang Belanja Anda</h1>
+      <h1 className="text-2xl font-bold mb-6" data-aos="zoom-in-down">Keranjang Belanja Anda</h1>
       
-      <div className="bg-white shadow-md rounded-lg overflow-hidden w-full max-w-3xl">
-        <table className="w-full text-left border-collapse">
+      <div className="bg-white shadow-md rounded-lg overflow-hidden w-full max-w-3xl" data-aos="zoom-in-down">
+        <table className="w-full text-left border-collapse" data-aos="zoom-in-down">
           <thead>
             <tr className="bg-blue-600 text-white">
               <th className="p-3">Produk</th>
@@ -91,11 +91,11 @@ export default function Cart() {
         </table>
       </div>
       
-      <div className="flex justify-between w-full max-w-3xl mt-4">
+      <div className="flex justify-between w-full max-w-3xl mt-4" data-aos="zoom-in-down">
         <span className="text-lg font-semibold">Total: Rp. {total.toLocaleString('id-ID')}</span>
       </div>
       
-      <a href={"/checkout?id=" + product?.id} className="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
+      <a data-aos="zoom-in-down" href={"/checkout?id=" + product?.id} className="mt-4 bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700 transition">
         Checkout
       </a>
     </div>
