@@ -38,22 +38,42 @@ const Footer = () => {
             </div>
   
             {/* Informasi */}
-            <div className="col-span-3 grid grid-cols-1 md:grid-cols-3 gap-6">
-              {[...Array(3)].map((_, i) => (
-                <div key={i}>
-                  <h3 className="text-lg font-bold text-gray-800 mb-3">
-                    Informasi
-                  </h3>
-                  <ul className="text-gray-600 space-y-2">
-                    <li>Studio Foto Singaraja</li>
-                    <li>Foto Box Singaraja</li>
-                    <li>Frame Foto Singaraja</li>
-                    <li>Sewa Kamera Singaraja</li>
-                    <li>Foto Prewedding</li>
-                    <li>Foto Wisuda</li>
-                  </ul>
-                </div>
-              ))}
+            <div>
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Informasi</h3>
+              <ul className="text-gray-600 space-y-2">
+                <li>Studio Foto Singaraja</li>
+                <li>Foto Box Singaraja</li>
+                <li>Frame Foto Singaraja</li>
+                <li>Sewa Kamera Singaraja</li>
+                <li>Foto Prawedding</li>
+                <li>Foto Wisuda</li>
+              </ul>
+            </div>
+
+            {/* Sosial Media */}
+            <div>
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Sosial Media</h3>
+              <ul className="text-gray-600 space-y-2">
+                <li>@Studio_Foto_Singaraja</li>
+                <li>@Foto_Box_Singaraja</li>
+                <li>@Frame_Foto_Singaraja</li>
+                <li>@Sewa_Kamera_Singaraja</li>
+                <li>@Dwi_saputra</li>
+                <li>@Triana_putra</li>
+              </ul>
+            </div>
+
+            {/* Lainnya */}
+            <div>
+              <h3 className="text-lg font-bold text-gray-800 mb-3">Lainnya</h3>
+              <ul className="text-gray-600 space-y-2">
+                <li>FotoBooth Pernikahan</li>
+                <li>VideoBooth Acara</li>
+                <li>Dokumentasi Pernikahan</li>
+                <li>Foto Outdoor</li>
+                <li>Foto Keluarga</li>
+                <li>Foto Selfi</li>
+              </ul>
             </div>
           </div>
   

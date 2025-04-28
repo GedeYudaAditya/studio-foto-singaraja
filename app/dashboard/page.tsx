@@ -1,85 +1,146 @@
 "use client";
 
+import { useState } from "react";
+import TableAdmin from "../components/TableAdmin";
+
+type Category = "selesai" | "ditolak" | "studio" | "sewa" | "fotobox" | "frame" | "";
+
 export default function AdminDashboard() {
+  const [selectedCategory, setSelectedCategory] = useState<Category>("");
   const customers = [
     {
+      id: 1,
       name: "Kadek Adi Ciptayana",
       phone: "08983737423",
       date: "20-03-2025",
+      tanggal_pengambilan: "01-05-2025",
+      tanggal_pengembalian: "03-05-2025",
+      ukuran: "4R",
       schedule: "10:00-11:00",
       payment: "COD",
     },
     {
+      id: 2,
       name: "Kadek Adi Ciptayana",
       phone: "08983737423",
       date: "20-03-2025",
+      tanggal_pengambilan: "01-05-2025",
+      tanggal_pengembalian: "03-05-2025",
+      ukuran: "4R",
       schedule: "10:00-11:00",
       payment: "COD",
     },
     {
+      id: 3,
       name: "Kadek Adi Ciptayana",
       phone: "08983737423",
       date: "20-03-2025",
+      tanggal_pengambilan: "01-05-2025",
+      tanggal_pengembalian: "03-05-2025",
+      ukuran: "4R",
       schedule: "10:00-11:00",
       payment: "COD",
     },
     {
+      id: 4,
       name: "Kadek Adi Ciptayana",
       phone: "08983737423",
+      tanggal_pengambilan: "01-05-2025",
+      tanggal_pengembalian: "03-05-2025",
+      ukuran: "4R",
       date: "20-03-2025",
       schedule: "10:00-11:00",
       payment: "COD",
     },
   ];
 
+  const filteredCustomers = customers;
+
+  const handleCategoryClick = (category: Category) => {
+    // if (category === "selesai") {
+    //   alert("Menampilkan data pesanan yang sudah selesai.");
+    //   // Bisa juga navigate ke halaman lain, dll
+    //   return;
+    // }
+  
+    // if (category === "ditolak") {
+    //   alert("Menampilkan data pesanan yang ditolak.");
+    //   // Bisa juga tindakan lainnya
+    //   return;
+    // }
+  
+    // Untuk kategori lainnya, set category agar tampilkan tabel
+    setSelectedCategory(category);
+  };
+
   return (
     <div className="p-6">
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <div className="bg-gray-200 p-4 rounded-lg flex justify-between items-center">
-          <div>
-            <h2 className="text-lg font-semibold">Selesai</h2>
-            <p className="text-3xl font-bold">10</p>
-          </div>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded">Lihat</button>
+      {selectedCategory === "" && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            { title: "Selesai", key: "selesai" },
+            { title: "Ditolak", key: "ditolak" },
+            { title: "Studio Foto", key: "studio" },
+            { title: "Sewa Kamera", key: "sewa" },
+            { title: "Foto Box", key: "fotobox" },
+            { title: "Foto Frame", key: "frame" },
+          ].map((item) => (
+            <div
+              key={item.key}
+              className="bg-gray-200 p-4 rounded-lg flex justify-between items-center"
+            >
+              <div>
+                <h2 className="text-lg font-semibold">{item.title}</h2>
+                <p className="text-3xl font-bold">10</p>
+              </div>
+              <button
+                onClick={() => handleCategoryClick(item.key as Category)}
+                className="bg-blue-500 text-white px-4 py-2 rounded"
+              >
+                Lihat
+              </button>
+            </div>
+          ))}
         </div>
-        <div className="bg-gray-200 p-4 rounded-lg flex justify-between items-center">
-          <div>
-            <h2 className="text-lg font-semibold">Ditolak</h2>
-            <p className="text-3xl font-bold">10</p>
-          </div>
-          <button className="bg-blue-500 text-white px-4 py-2 rounded">Lihat</button>
-        </div>
-      </div>
+      )}
 
-      <h2 className="mt-6 text-xl font-bold">Daftar Pelanggan</h2>
-      <div className="mt-4 border rounded-lg overflow-hidden">
-        <table className="w-full border-collapse">
-          <thead className="bg-blue-700 text-white">
-            <tr>
-              <th className="p-2">Nama</th>
-              <th className="p-2">No Tip</th>
-              <th className="p-2">Tanggal</th>
-              <th className="p-2">Jadwal</th>
-              <th className="p-2">Pembayaran</th>
-              <th className="p-2">Opsi</th>
-            </tr>
-          </thead>
-          <tbody>
-            {customers.map((customer, index) => (
-              <tr key={index} className="border-t">
-                <td className="p-2">{customer.name}</td>
-                <td className="p-2">{customer.phone}</td>
-                <td className="p-2">{customer.date}</td>
-                <td className="p-2">{customer.schedule}</td>
-                <td className="p-2">{customer.payment}</td>
-                <td className="p-2">
-                  <button className="bg-green-500 text-white px-3 py-1 rounded">Lihat</button>
-                </td>
-              </tr>
+      {(selectedCategory === "selesai" || selectedCategory === "ditolak") && (
+        <>
+          <h2 className="mt-6 text-xl font-bold">
+            Data Pesanan {selectedCategory === "selesai" ? "Selesai" : "Ditolak"}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              { title: "Studio Foto", key: "studio" },
+              { title: "Sewa Kamera", key: "sewa" },
+              { title: "Foto Box", key: "fotobox" },
+              { title: "Foto Frame", key: "frame" },
+            ].map((item) => (
+              <div
+                key={item.key}
+                className="bg-gray-200 p-4 rounded-lg flex justify-between items-center"
+              >
+                <div>
+                  <h2 className="text-lg font-semibold">{item.title}</h2>
+                  <p className="text-3xl font-bold">10</p>
+                </div>
+                <button
+                  onClick={() => handleCategoryClick(item.key as Category)}
+                  className="bg-blue-500 text-white px-4 py-2 rounded"
+                >
+                  Lihat
+                </button>
+              </div>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </div>
+        </>
+      )}
+
+      {selectedCategory &&
+        selectedCategory !== "selesai" &&
+        selectedCategory !== "ditolak" && (
+          <TableAdmin title={`Data Pesanan ${selectedCategory}`} customers={filteredCustomers} jenis={selectedCategory} />
+      )}
     </div>
   );
 }

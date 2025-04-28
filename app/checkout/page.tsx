@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useSearchParams } from "next/navigation";
 import TimePicker from '../components/TimePicker';
+import Swal from 'sweetalert2';
 
 const products = [
     { image: '/img/card/studio/image.png', category: 'studio', title: 'foto studio 1-2 orang + bebas pilih background', price: 100000, id: 1},
@@ -35,8 +36,15 @@ export default function Checkout() {
   // const isCamera = product?.category === 'camera';
 
     const handleCheckout = () => {
-        alert('Pesanan berhasil dibuat');
-        window.location.href = '/history';
+        // alert('Pesanan berhasil dibuat');
+        Swal.fire({
+          title: "Pesanan Berhasil",
+          text: "Pesanan anda berhasil dibuat, silahkan cek riwayat pesanan anda",
+          icon: "success",
+        }).then(() => {
+          window.location.href = '/history';
+        });
+        // window.location.href = '/history';
     };
 
     if (!product) {

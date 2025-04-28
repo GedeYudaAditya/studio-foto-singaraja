@@ -64,8 +64,8 @@ const Porftofolio = () => {
 
   return (
     <div className="max-w-5xl mx-auto text-center p-4 sm:p-6 mb-10">
-      <h2 className="text-3xl sm:text-4xl font-bold mb-6 mt-20" data-aos="zoom-in-down">Galeri Kami</h2>
-      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6" data-aos="zoom-in-down">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-6 mt-20" data-aos-duration="1000" data-aos="zoom-in-down">Galeri Kami</h2>
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-6" data-aos-duration="1000" data-aos="zoom-in-down">
         {categories.map((category) => (
           <button
             key={category.id}
@@ -85,7 +85,7 @@ const Porftofolio = () => {
           .filter((img) => img.category === activeCategory)
           .map((img, index) => (
             <img
-              data-aos="flip-right"
+              data-aos-duration="1000" data-aos="flip-right"
               key={index}
               src={img.src}
               alt="Gallery Image"

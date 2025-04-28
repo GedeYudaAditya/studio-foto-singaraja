@@ -133,7 +133,7 @@ export default function ProductReviewPage() {
     return (
       <div className="flex flex-col md:flex-row items-center max-w-5xl mx-auto pb-12 px-6 pt-28">
         {/* Bagian Gambar */}
-        <div className="md:w-1/2 mb-6 md:mb-0" data-aos="fade-right">
+        <div className="md:w-1/2 mb-6 md:mb-0" data-aos-duration="1000" data-aos="fade-right">
           <img 
             src={product.image}
             alt="Foto Studio"
@@ -142,7 +142,7 @@ export default function ProductReviewPage() {
         </div>
         
         {/* Bagian Deskripsi */}
-        <div className="md:w-1/2 md:pl-10" data-aos="fade-left">
+        <div className="md:w-1/2 md:pl-10" data-aos-duration="1000" data-aos="fade-left">
           <h2 className="text-2xl font-bold mb-4">Review Produk</h2>
           <h3 className="text-xl font-semibold mb-3">
             {product.title}
