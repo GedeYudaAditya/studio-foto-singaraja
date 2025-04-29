@@ -23,9 +23,9 @@ export default function TableAdmin({
   jenis: string;
 }) {
 
-  const goToDetail = (item: Customer, title: string) => {
-    window.location.href = `/dashboard/detail/${title.toLowerCase().replace(" ", "-")}/${item.id}`;
-  };
+  // const goToDetail = (item: Customer, title: string) => {
+  //   window.location.href = `/dashboard/detail/${title.toLowerCase().replace(" ", "-")}/${item.id}`;
+  // };
 
   return (
     <>
@@ -64,24 +64,24 @@ export default function TableAdmin({
                 <td className="p-2">{customer.payment}</td>
                 <td className="p-2">
                 <div className="flex gap-2">
-                  <button className="bg-green-500 text-white px-3 py-1 rounded" onClick={() => goToDetail(customer, title)}>Lihat</button>
-                  <button className="bg-red-500 text-white px-3 py-1 rounded" onClick={() => {
+                  {/* <button className="bg-teal-500 text-white px-3 py-1 rounded" onClick={() => goToDetail(customer, title)}>Lihat</button> */}
+                  <button className="bg-green-500 text-white px-3 py-1 rounded" onClick={() => {
                     Swal.fire({
-                      title: "Yakin ingin menghapus?",
+                      title: "Yakin ingin menerima pesanan ini?",
                       text: "Data ini tidak bisa dikembalikan!",
                       icon: "warning",
                       showCancelButton: true,
-                      confirmButtonColor: "#d33",
-                      cancelButtonColor: "#3085d6",
-                      confirmButtonText: "Ya, hapus!",
+                      confirmButtonColor: "#3085d6",
+                      cancelButtonColor: "#ff4433",
+                      confirmButtonText: "Ya, terima!",
                       cancelButtonText: "Batal",
                     }).then((result) => {
                       if (result.isConfirmed) {
-                        Swal.fire("Terhapus!", "Data berhasil dihapus.", "success");
+                        Swal.fire("Terhapus!", "Data berhasil diterima.", "success");
                         // Di sini bisa panggil fungsi hapus atau API delete
                       }
                     });
-                  }}>Hapus
+                  }}>Selesai
                 </button>
                 </div>
                 </td>

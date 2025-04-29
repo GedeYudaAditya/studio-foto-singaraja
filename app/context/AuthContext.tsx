@@ -1,5 +1,6 @@
 "use client"
 import { createContext, useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
 
 // Buat Context
 const AuthContext = createContext(null);
@@ -19,12 +20,27 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const login = (userData: any) => {
     localStorage.setItem("user", JSON.stringify(userData));
     setUser(userData);
+    Swal.fire("Berhasil masuk", `Selamat datang, ${userData.name}!`, "success");
   };
 
   const logout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-    window.location.href = "/";
+    Swal.fire({
+      title: "Yakin ingin keluar?",
+      text: "Kamu akan keluar dari sesi saat ini.",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Ya, keluar!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("user");
+        setUser(null);
+        Swal.fire("Berhasil keluar", "Sampai jumpa lagi!", "success").then(() => {
+          window.location.href = "/";
+        });
+      }
+    });
   };
 
   return (
