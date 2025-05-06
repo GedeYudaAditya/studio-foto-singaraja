@@ -129,14 +129,27 @@ export default function Checkout() {
             onClick={() => setPaymentMethod('Transfer Bank')}>Transfer Bank</button>
         </div>
         {paymentMethod === 'COD' ? (
-          <div className='p-3 flex'>
-            <span className="w-1/4">COD</span>
-            <span className="">Cash on Delivery</span>
+          // <div className='p-3 flex'>
+          //   <span className="w-1/4">COD</span>
+          //   <span className="">Cash on Delivery</span>
+          //   <span className="">Jika menggunakan fitur COD foto akan di cetak saat pelanggan berada di Studio Foto Singaraja</span>
+          // </div>
+          <div>
+            <div className='p-3 flex border-b'>
+              <span className="w-1/4">COD</span>
+              <span className="">Cash on Delivery</span>
+            </div>
+            {product?.category === 'frame' ? (<div className="p-3 flex">
+              <div className='w-10/12 m-auto'>
+                <p>Jika menggunakan fitur COD foto akan di cetak saat pelanggan berada di Studio Foto Singaraja</p>
+              </div>
+              {/* <input type="file" className="border p-2" /> */}
+            </div>) : (<></>)}
           </div>
         ) : (
           <div>
             <div className='p-3 flex border-b'>
-              <span className="w-1/4">COD</span>
+              <span className="w-1/4">Transfer</span>
               <span className="">Silahkan lakukan pembayaran pada no rekening ini 
               No Rek : 0088 1234 5678 1987</span>
             </div>
