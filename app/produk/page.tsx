@@ -15,14 +15,14 @@ export default function LayananKami() {
               data-aos-duration="1000" data-aos="flip-left"
               href={item.to}
               key={index}
-              className="bg-white shadow-lg rounded-xl p-4 flex flex-col items-center text-center hover:shadow-xl transition-all"
+              className="bg-white shadow-lg rounded-xl flex flex-col items-center text-center hover:shadow-xl transition-all border border-gray-200 overflow-hidden"
             >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-32 h-32 object-cover mb-4"
+                className="w-full h-48 object-cover mb-4 border-b border-gray-200 rounded-t-xl hover:scale-105 transition-transform duration-300"
               />
-              <h3 className="font-semibold text-lg">{item.title}</h3>
+              <h3 className="font-semibold text-lg px-4 pb-4">{item.title}</h3>
             </a>
           ))}
         </div>

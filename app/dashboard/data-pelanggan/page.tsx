@@ -1,5 +1,5 @@
 import StudioFotoTable from "../../components/table";
 
 export default function PesananMasuk() {
-  return <StudioFotoTable title="Pesanan Masuk" />;
+  return <StudioFotoTable title="Data Pelanggan" jenis="pelanggan" />;
 }

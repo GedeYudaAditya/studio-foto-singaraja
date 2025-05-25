@@ -13,10 +13,14 @@ const AuthPage = ({ type }: { type: "login" | "register" }) => {
     // Contoh data user setelah login
     const userData = { name:"Komang Teguh Widiadinata", username: "User123", email: "user@example.com", avatar: "/img/profil/avatar.png" };
         
-    login(userData);
-
+    
     // Redirect ke halaman home
-    router.push("/");
+    if (type === "login"){
+      login(userData);
+      router.push("/");
+    } else {
+      router.push("/auth/login");
+    }
   };
 
   return (

@@ -38,7 +38,7 @@ const images = [
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 1},
+          </ul>), id: 5},
   
   { image: '/img/card/camera/d700.png', category: 'camera', title: 'Canon EOS 700D (DSLR)', price: 100000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
@@ -46,28 +46,28 @@ const images = [
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 5},
+          </ul>), id: 6},
   { image: '/img/card/camera/d1300.png', category: 'camera', title: 'Canon EOS 1300D (DSLR)', price: 140000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
             <li>2 lembar cetak foto ukuran 30x30 cm, anti gores & anti air</li>
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 6},
+          </ul>), id: 7},
   { image: '/img/card/camera/image-1.png', category: 'camera', title: 'Sony Alpa mark 1 (DSLR)', price: 140000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
             <li>2 lembar cetak foto ukuran 30x30 cm, anti gores & anti air</li>
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 7},
+          </ul>), id: 8},
   { image: '/img/card/camera/image.png', category: 'camera', title: 'Sony Alpa 6400 (Miroles)', price: 160000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
             <li>2 lembar cetak foto ukuran 30x30 cm, anti gores & anti air</li>
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 8},
+          </ul>), id: 9},
   
   { image: '/img/card/box/image.png', category: 'box', title: 'Foto Box Hige Angle Photography', price: 100000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
@@ -75,21 +75,21 @@ const images = [
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 9},
+          </ul>), id: 10},
   { image: '/img/card/box/image-1.png', category: 'box', title: 'Foto Box 1-2 orang + bebas pilih backgroung', price: 100000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
             <li>2 lembar cetak foto ukuran 30x30 cm, anti gores & anti air</li>
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 10},
+          </ul>), id: 11},
   { image: '/img/card/box/image-2.png', category: 'box', title: 'Foto Box 3-4 orang + bebas pilih backgroun ', price: 120000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
             <li>2 lembar cetak foto ukuran 30x30 cm, anti gores & anti air</li>
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 11},
+          </ul>), id: 12},
 
   { image: '/img/card/frame/image.png', category: 'frame', title: 'Frame foto 4R + bingkai foto', price: 40000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
@@ -97,21 +97,21 @@ const images = [
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 12},
+          </ul>), id: 13},
   { image: '/img/card/frame/image-1.png', category: 'frame', title: 'Frame foto 5R + bingkai foto', price: 50000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
             <li>2 lembar cetak foto ukuran 30x30 cm, anti gores & anti air</li>
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 13},
+          </ul>), id: 14},
   { image: '/img/card/frame/image-2.png', category: 'frame', title: 'Frame foto 8R + bingkai foto', price: 70000 , content: (<ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
             <li>Foto max 30 menit</li>
             <li>2 lembar cetak foto ukuran 30x30 cm, anti gores & anti air</li>
             <li>Background bebas pilih warna</li>
             <li>Hasil gambar dikirim melalui drive atau lewat kabel data</li>
             <li>Foto di gedung Studio Foto Singaraja</li>
-          </ul>), id: 14},
+          </ul>), id: 15},
 ];
 
 

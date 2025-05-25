@@ -17,7 +17,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     "Sewa Kamera": faImage,
     "Foto Box": faBox,
     "Frame Foto": faImage,
-    "Pesanan Masuk": faDownload,
+    "Data Pelanggan": faDownload,
   };
 
   // Menentukan menu berdasarkan URL saat pertama kali dimuat
@@ -30,8 +30,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       setSelectedMenu("Foto Box");
     } else if (pathname.includes("frame-foto")) {
       setSelectedMenu("Frame Foto");
-    } else if (pathname.includes("pesanan-masuk")) {
-      setSelectedMenu("Pesanan Masuk");
+    } else if (pathname.includes("data-pelanggan")) {
+      setSelectedMenu("Data Pelanggan");
     } else {
       setSelectedMenu("Dashboard");
     }
@@ -79,7 +79,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
         <nav className="mt-6">
           <ul>
-            {["Dashboard", "Studio Foto", "Sewa Kamera", "Foto Box", "Frame Foto", "Pesanan Masuk"].map((menu) => (
+            {["Dashboard", "Studio Foto", "Sewa Kamera", "Foto Box", "Frame Foto", "Data Pelanggan"].map((menu) => (
               <li
                 key={menu}
                 className={`p-3 rounded-md mb-2 cursor-pointer flex items-center ${

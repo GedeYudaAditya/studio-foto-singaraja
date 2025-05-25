@@ -20,6 +20,7 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
       tanggal_pengembalian: "03-05-2025",
       ukuran: "4R",
       schedule: "10:00-11:00",
+      email: "example@gmail.com",
       payment: "COD",
     },
     {
@@ -31,6 +32,7 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
       tanggal_pengembalian: "03-05-2025",
       ukuran: "4R",
       schedule: "10:00-11:00",
+      email: "example@gmail.com",
       payment: "COD",
     },
     {
@@ -42,6 +44,7 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
       tanggal_pengembalian: "03-05-2025",
       ukuran: "4R",
       schedule: "10:00-11:00",
+      email: "example@gmail.com",
       payment: "COD",
     },
     {
@@ -53,6 +56,7 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
       ukuran: "4R",
       date: "20-03-2025",
       schedule: "10:00-11:00",
+      email: "example@gmail.com",
       payment: "COD",
     },
   ];
@@ -69,6 +73,14 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">{title}</h1>
 
+      {/* button add */}
+      <div className="flex justify-between items-center mb-4">
+      <div className="flex justify-end mb-4">
+        <a href={`/dashboard/tambah/${title.toLowerCase().replace(" ", "-")}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+          Tambah
+        </a>
+      </div>
+
       <div className="flex justify-end mb-2">
         <input
           type="text"
@@ -77,6 +89,7 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
+      </div>
       </div>
 
       <div className="overflow-x-auto">
@@ -93,7 +106,9 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
                       {(jenis === "sewa" || jenis === "frame") && <th className="p-2">Pengambilan</th>}
                       {jenis === "sewa" && <th className="p-2">Pengembalian</th>}
         
-                      <th className="p-2">Pembayaran</th>
+                      {jenis !== "pelanggan" && <th className="p-2">Pengembalian</th>}
+                      {jenis === "pelanggan" && <th className="p-2">Email</th>}
+                      {/* <th className="p-2">Pembayaran</th> */}
                       <th className="p-2">Opsi</th>
                     </tr>
                   </thead>
@@ -110,10 +125,11 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
                         {(jenis === "sewa" || jenis === "frame") && <td className="p-2">{customer.tanggal_pengambilan}</td>}
                         {jenis === "sewa" && <td className="p-2">{customer.tanggal_pengembalian}</td>}
         
-                        <td className="p-2">{customer.payment}</td>
+                        {jenis !== "pelanggan" && <td className="p-2">{customer.payment}</td>}
+                        {jenis === "pelanggan" && <td className="p-2">{customer.email}</td>}
                         <td className="p-2">
                         <div className="flex gap-2">
-                          <button
+                          {jenis !== "pelanggan" && (<button
                             className="bg-green-500 text-white px-3 py-1 rounded"
                             onClick={() =>
                               goToDetail(
@@ -130,10 +146,10 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
                             }
                           >
                             Lihat
-                          </button>
+                          </button>)}
                           <button className="bg-red-500 text-white px-3 py-1 rounded" onClick={() => {
                             Swal.fire({
-                              title: "Yakin ingin menghapus pesanan ini?",
+                              title: "Yakin ingin menghapus ini?",
                               text: "Data ini tidak bisa dikembalikan!",
                               icon: "warning",
                               showCancelButton: true,
