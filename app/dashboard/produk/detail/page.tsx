@@ -34,7 +34,7 @@ const images = [
 
 const ProdukDetailDashboard = () => {
   const router = useRouter();
-  const [activeCategory, setActiveCategory] = useState('studio');
+  const [activeCategory, setActiveCategory] = useState('studio-foto');
 
   useEffect(() => {
     const hash = window.location.hash.replace('#', '');
