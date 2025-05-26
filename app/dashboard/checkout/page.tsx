@@ -1,17 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useSearchParams } from "next/navigation";
 import TimePicker from '@/app/components/TimePicker';
 import Swal from 'sweetalert2';
 
-
-const categories = [
-  { id: 'studio-foto', name: 'Studio Foto' },
-  { id: 'sewa-kamera', name: 'Sewa Kamera' },
-  { id: 'foto-box', name: 'Foto Box' },
-  { id: 'frame-foto', name: 'Frame Foto' },
-];
 
 const products = [
     { image: '/img/card/studio/image.png', category: 'studio', title: 'foto studio 1-2 orang + bebas pilih background', price: 100000, id: 1},
@@ -38,27 +31,7 @@ export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState('COD');
   const searchParams = useSearchParams();
   const productId = searchParams.get("id");
-
-  const [activeCategory, setActiveCategory] = useState('studio-foto');
-  
-    useEffect(() => {
-      const hash = window.location.hash.replace('#', '');
-      if (hash && categories.some((cat) => cat.id === hash)) {
-        setActiveCategory(hash);
-      }
-    }, []);
-  
-    useEffect(() => {
-      const handleHashChange = () => {
-        const hash = window.location.hash.replace('#', '');
-        if (hash && categories.some((cat) => cat.id === hash)) {
-          setActiveCategory(hash);
-        }
-      };
-  
-      window.addEventListener('hashchange', handleHashChange);
-      return () => window.removeEventListener('hashchange', handleHashChange);
-    }, []);
+  const category = searchParams.get("category");
 
     // Cari data produk berdasarkan ID
   const product = products.find((item) => item.id === parseInt(productId as string));
@@ -71,7 +44,7 @@ export default function Checkout() {
           text: "Pesanan anda berhasil dibuat, silahkan cek riwayat pesanan anda",
           icon: "success",
         }).then(() => {
-          window.location.href = '/dashboard/' + activeCategory;
+          window.location.href = '/dashboard/' + category;
         });
         // window.location.href = '/history';
     };
