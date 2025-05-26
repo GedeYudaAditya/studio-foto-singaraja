@@ -24,7 +24,7 @@ const ProductCardDashboard = ({ product }: { product: Product }) => {
       <div className="p-4 w-full h-full flex flex-col justify-between">
         <h3 className="font-semibold text-lg">{product.title}</h3>
         <p className="text-gray-500 mb-2">Rp. {formatHarga(product.price)}</p>
-        <a className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition" href={"review/" + product.id}>
+        <a className="w-full bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition" href={"/dashboard/checkout?id=" + product.id}>
             Pilih
         </a>
       </div>
