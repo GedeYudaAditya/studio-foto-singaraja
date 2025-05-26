@@ -78,21 +78,22 @@ export default function Checkout() {
 <div className="border p-4 rounded-b-lg">
   <h2 className="font-semibold text-lg mb-3 text-center">Tentukan tanggal dan jadwal</h2>
   <div className="grid grid-cols-2 gap-4">
-    {product?.category === 'camera' ? (
-      <div>
-      <label htmlFor="tanggal" className="block text-sm font-medium text-gray-700">
-        Pilih Tanggal Pengambilan
-      </label>
-      <input id="tanggal" type="date" className="border p-2 rounded w-full" />
-    </div>
-    ) : (
-      <div>
-      <label htmlFor="tanggal" className="block text-sm font-medium text-gray-700">
-        Pilih Tanggal
-      </label>
-      <input id="tanggal" type="date" className="border p-2 rounded w-full" />
-    </div>
-    )}
+  {product?.category === 'camera' || product?.category === 'frame' ? (
+  <div>
+    <label htmlFor="tanggal" className="block text-sm font-medium text-gray-700">
+      Pilih Tanggal Pengambilan
+    </label>
+    <input id="tanggal" type="date" className="border p-2 rounded w-full" />
+  </div>
+) : (
+  <div>
+    <label htmlFor="tanggal" className="block text-sm font-medium text-gray-700">
+      Pilih Tanggal
+    </label>
+    <input id="tanggal" type="date" className="border p-2 rounded w-full" />
+  </div>
+)}
+
 
     {product?.category === 'camera' ? (
       <div>
