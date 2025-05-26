@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useSearchParams } from "next/navigation";
-import TimePicker from '../components/TimePicker';
+import TimePicker from '@/app/components/TimePicker';
 import Swal from 'sweetalert2';
 
 const products = [
@@ -42,7 +42,7 @@ export default function Checkout() {
           text: "Pesanan anda berhasil dibuat, silahkan cek riwayat pesanan anda",
           icon: "success",
         }).then(() => {
-          window.location.href = '/history';
+          window.location.href = '/dashboard';
         });
         // window.location.href = '/history';
     };
