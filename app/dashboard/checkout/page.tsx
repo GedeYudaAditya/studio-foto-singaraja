@@ -77,6 +77,12 @@ export default function Checkout() {
 {/* Schedule Form */}
 <div className="border p-4 rounded-b-lg">
   <h2 className="font-semibold text-lg mb-3 text-center">Tentukan tanggal dan jadwal</h2>
+  <div className='mb-4'>
+    <label htmlFor="nama" className="block text-sm font-medium text-gray-700">
+      Nama
+    </label>
+    <input id="nama" type="text" className="border p-2 rounded w-full" />
+  </div>
   <div className="grid grid-cols-2 gap-4">
   {product?.category === 'camera' || product?.category === 'frame' ? (
   <div>
