@@ -6,15 +6,19 @@ import { faCheckCircle, faTimesCircle, faArrowLeft } from "@fortawesome/free-sol
 
 export default function DetailComponent({ jenis, id }: { jenis: string; id: string }) {
   const router = useRouter();
-  const [detail, setDetail] = useState<{ id: number; nama: string; noTlp: string; tanggal: string; jadwal: string; pembayaran: string; image: string; status?: string, profile: string} | null>(null);
+  const [detail, setDetail] = useState<{ id: number; nama: string; noTlp: string; tanggal: string; jadwal: string; pembayaran: string; image: string; status?: string, profile: string, tanggal_pengambilan: string, tanggal_pengembalian: string} | null>(null);
   const [status, setStatus] = useState<"accepted" | "declined" | "pending">("pending");
 
   // Data dummy dengan gambar (URL gambar contoh)
   const data = [
-    { id: 1, nama: "Kadek Adi Ciptayana", noTlp: "081963734123", tanggal: "20-03-2025", jadwal: "10.00-11.00", pembayaran: "COD", image: "/img/image.png", profile: "/img/profil/avatar.png"},
-    { id: 2, nama: "Kadek Adi Ciptayana", noTlp: "081963734123", tanggal: "20-03-2025", jadwal: "10.00-11.00", pembayaran: "COD", image: "/img/image2.png", profile: "/img/profil/avatar.png"},
-    { id: 3, nama: "Kadek Adi Ciptayana", noTlp: "081963734123", tanggal: "20-03-2025", jadwal: "10.00-11.00", pembayaran: "COD", image: "/img/image3.png", profile: "/img/profil/avatar.png"},
-    { id: 4, nama: "Kadek Adi Ciptayana", noTlp: "081963734123", tanggal: "20-03-2025", jadwal: "10.00-11.00", pembayaran: "COD", image: "/img/image4.png", profile: "/img/profil/avatar.png"},
+    { id: 1, nama: "Kadek Adi Ciptayana", noTlp: "081963734123", tanggal: "20-03-2025", jadwal: "10.00-11.00", pembayaran: "COD", image: "/img/image.png", profile: "/img/profil/avatar.png",       tanggal_pengambilan: "01-05-2025",
+      tanggal_pengembalian: "03-05-2025"},
+    { id: 2, nama: "Kadek Adi Ciptayana", noTlp: "081963734123", tanggal: "20-03-2025", jadwal: "10.00-11.00", pembayaran: "COD", image: "/img/image2.png", profile: "/img/profil/avatar.png",       tanggal_pengambilan: "01-05-2025",
+      tanggal_pengembalian: "03-05-2025"},
+    { id: 3, nama: "Kadek Adi Ciptayana", noTlp: "081963734123", tanggal: "20-03-2025", jadwal: "10.00-11.00", pembayaran: "COD", image: "/img/image3.png", profile: "/img/profil/avatar.png",       tanggal_pengambilan: "01-05-2025",
+      tanggal_pengembalian: "03-05-2025"},
+    { id: 4, nama: "Kadek Adi Ciptayana", noTlp: "081963734123", tanggal: "20-03-2025", jadwal: "10.00-11.00", pembayaran: "COD", image: "/img/image4.png", profile: "/img/profil/avatar.png",       tanggal_pengambilan: "01-05-2025",
+      tanggal_pengembalian: "03-05-2025"},
   ];
 
   useEffect(() => {
@@ -39,6 +43,14 @@ export default function DetailComponent({ jenis, id }: { jenis: string; id: stri
         <p className="mb-2"><strong>Tanggal:</strong> {detail.tanggal}</p>
         <p className="mb-2"><strong>Jadwal:</strong> {detail.jadwal}</p>
         <p className="mb-2"><strong>Pembayaran:</strong> {detail.pembayaran}</p>
+        {(jenis === "sewa-kamera" || jenis === "frame-foto") && (
+          <>
+            <p className="mb-2"><strong>Tanggal Pengambilan:</strong> {detail.tanggal_pengambilan}</p>
+            {(jenis !== "frame-foto") && (
+              <p className="mb-2"><strong>Tanggal Pengembalian:</strong> {detail.tanggal_pengembalian}</p>
+            )}
+          </>
+        )}
         <p className="mt-3 text-lg font-semibold">
           Status: 
           <span className={`ml-2 px-3 py-1 rounded-full text-white ${status === "accepted" ? "bg-green-500" : status === "declined" ? "bg-red-500" : "bg-gray-400"}`}>

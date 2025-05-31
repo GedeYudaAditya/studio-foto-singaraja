@@ -57,7 +57,7 @@ const ProdukDetailDashboard = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-10 text-center mb-10">
-      {/* <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 mt-20" data-aos-duration="1000" data-aos="zoom-in-down">Produk Kami</h2> */}
+      <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 mt-20" data-aos-duration="1000" data-aos="zoom-in-down">{categories.find((cat) => cat.id === activeCategory)?.name}</h2>
       <div className="flex-wrap justify-center gap-4 mb-8 hidden" data-aos-duration="1000" data-aos="zoom-in-down">
         {categories.map((category) => (
           <button
