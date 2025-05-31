@@ -76,7 +76,7 @@ export default function StudioFotoTable({ title = "Studio Foto", jenis }: Studio
       {/* button add */}
       <div className="flex justify-between items-center mb-4">
       <div className="flex justify-end mb-4">
-        <a href={`/dashboard/produk/detail#${title.toLowerCase().replace(" ", "-")}`} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+        <a href={`/dashboard/produk/detail#${title.toLowerCase().replace(" ", "-")}`} className={`bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ${jenis === "pelanggan" ? "hidden" : ""}`}>
           Tambah
         </a>
       </div>

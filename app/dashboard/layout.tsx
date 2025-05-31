@@ -22,15 +22,19 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   // Menentukan menu berdasarkan URL saat pertama kali dimuat
   useEffect(() => {
-    if (pathname.includes("studio-foto")) {
+
+    // ambil juga data setelah # dalam url
+    const hash = window.location.hash.replace("#", "");
+
+    if (pathname.includes("studio-foto") || hash === "studio-foto") {
       setSelectedMenu("Studio Foto");
-    } else if (pathname.includes("sewa-kamera")) {
+    } else if (pathname.includes("sewa-kamera" ) || hash === "sewa-kamera") {
       setSelectedMenu("Sewa Kamera");
-    } else if (pathname.includes("foto-box")) {
+    } else if (pathname.includes("foto-box") || hash === "foto-box") {
       setSelectedMenu("Foto Box");
-    } else if (pathname.includes("frame-foto")) {
+    } else if (pathname.includes("frame-foto") || hash === "frame-foto") {
       setSelectedMenu("Frame Foto");
-    } else if (pathname.includes("data-pelanggan")) {
+    } else if (pathname.includes("data-pelanggan") || hash === "data-pelanggan") {
       setSelectedMenu("Data Pelanggan");
     } else {
       setSelectedMenu("Dashboard");
