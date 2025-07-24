@@ -30,22 +30,46 @@ export default function Checkout() {
   const [paymentMethod, setPaymentMethod] = useState('COD');
   const searchParams = useSearchParams();
   const productId = searchParams.get("id");
+  const [tanggal, setTanggal] = useState('');
+  const [tanggalPengembalian, setTanggalPengembalian] = useState('');
+  const [noTelp, setNoTelp] = useState('');
+  const [fotoFile, setFotoFile] = useState<File | null>(null);
+  const [buktiTransfer, setBuktiTransfer] = useState<File | null>(null);
+  const [errors, setErrors] = useState<{ [key: string]: string }>({});
+
 
     // Cari data produk berdasarkan ID
   const product = products.find((item) => item.id === parseInt(productId as string));
   // const isCamera = product?.category === 'camera';
 
-    const handleCheckout = () => {
-        // alert('Pesanan berhasil dibuat');
-        Swal.fire({
-          title: "Pesanan Berhasil",
-          text: "Pesanan anda berhasil dibuat, silahkan cek riwayat pesanan anda",
-          icon: "success",
-        }).then(() => {
-          window.location.href = '/history';
-        });
-        // window.location.href = '/history';
-    };
+  const handleCheckout = () => {
+    const newErrors: { [key: string]: string } = {};
+  
+    if (!tanggal) newErrors.tanggal = 'Tanggal harus diisi';
+    if (product?.category === 'camera' && !tanggalPengembalian) newErrors.tanggalPengembalian = 'Tanggal pengembalian harus diisi';
+    if (!noTelp) newErrors.noTelp = 'Nomor telepon wajib diisi';
+    else if (!/^\d{10,15}$/.test(noTelp)) newErrors.noTelp = 'Nomor telepon tidak valid';
+  
+    if (product?.category === 'frame' && !fotoFile) {
+      newErrors.fotoFile = 'Foto harus diunggah';
+    }
+  
+    if (paymentMethod === 'Transfer Bank' && !buktiTransfer) {
+      newErrors.buktiTransfer = 'Bukti transfer harus diunggah';
+    }
+  
+    setErrors(newErrors);
+    if (Object.keys(newErrors).length > 0) return;
+  
+    Swal.fire({
+      title: "Pesanan Berhasil",
+      text: "Pesanan anda berhasil dibuat, silahkan cek riwayat pesanan anda",
+      icon: "success",
+    }).then(() => {
+      window.location.href = '/history';
+    });
+  };
+  
 
     if (!product) {
         return <h1>Produk tidak ditemukan</h1>;
@@ -88,7 +112,15 @@ export default function Checkout() {
       <label htmlFor="tanggal" className="block text-sm font-medium text-gray-700">
         Pilih Tanggal
       </label>
-      <input id="tanggal" type="date" className="border p-2 rounded w-full" />
+      <input
+        id="tanggal"
+        type="date"
+        className="border p-2 rounded w-full"
+        value={tanggal}
+        onChange={(e) => setTanggal(e.target.value)}
+      />
+      {errors.tanggal && <p className="text-red-500 text-sm mt-1">{errors.tanggal}</p>}
+
     </div>
     )}
 
@@ -97,14 +129,30 @@ export default function Checkout() {
         <label htmlFor="tanggal-pengembalian" className="block text-sm font-medium text-gray-700">
           Pilih Tanggal Pengembalian
         </label>
-        <input id="tanggal-pengembalian" type="date" className="border p-2 rounded w-full" />
+        <input
+  id="tanggal-pengembalian"
+  type="date"
+  className="border p-2 rounded w-full"
+  value={tanggalPengembalian}
+  onChange={(e) => setTanggalPengembalian(e.target.value)}
+/>
+{errors.tanggalPengembalian && <p className="text-red-500 text-sm mt-1">{errors.tanggalPengembalian}</p>}
+
       </div>
     ) : product?.category === 'frame' ? (
       <div>
         <label htmlFor="foto" className="block text-sm font-medium text-gray-700">
           Unggah Foto
         </label>
-        <input id="foto" type="file" className="border p-2 rounded w-full" accept="image/*" />
+        <input
+  id="foto"
+  type="file"
+  className="border p-2 rounded w-full"
+  accept="image/*"
+  onChange={(e) => setFotoFile(e.target.files?.[0] || null)}
+/>
+{errors.fotoFile && <p className="text-red-500 text-sm mt-1">{errors.fotoFile}</p>}
+
       </div>
     ) : (
       // <div>
@@ -121,7 +169,16 @@ export default function Checkout() {
     <label htmlFor="no-telp" className="block text-sm font-medium text-gray-700">
       No Telp
     </label>
-    <input id="no-telp" type="text" className="border p-2 rounded w-full" placeholder="Masukkan No Telp" />
+    <input
+  id="no-telp"
+  type="text"
+  className="border p-2 rounded w-full"
+  placeholder="Masukkan No Telp"
+  value={noTelp}
+  onChange={(e) => setNoTelp(e.target.value)}
+/>
+{errors.noTelp && <p className="text-red-500 text-sm mt-1">{errors.noTelp}</p>}
+
   </div>
 </div>
 
@@ -167,7 +224,13 @@ export default function Checkout() {
                 <p>Silahkan kirimkan bukti pembayaran anda pada tombol di 
                 sebelah kanan</p>
               </div>
-              <input type="file" className="border p-2" />
+              <input
+                type="file"
+                className="border p-2"
+                onChange={(e) => setBuktiTransfer(e.target.files?.[0] || null)}
+              />
+              {errors.buktiTransfer && <p className="text-red-500 text-sm mt-1">{errors.buktiTransfer}</p>}
+
             </div>
           </div>
         )}
