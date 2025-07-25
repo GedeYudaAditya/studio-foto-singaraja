@@ -59,6 +59,8 @@ export default function Checkout() {
     }
   
     setErrors(newErrors);
+    console.log(newErrors);
+    
     if (Object.keys(newErrors).length > 0) return;
   
     Swal.fire({
@@ -105,7 +107,14 @@ export default function Checkout() {
       <label htmlFor="tanggal" className="block text-sm font-medium text-gray-700">
         Pilih Tanggal Pengambilan
       </label>
-      <input id="tanggal" type="date" className="border p-2 rounded w-full" />
+      <input
+        id="tanggal"
+        type="date"
+        className="border p-2 rounded w-full"
+        value={tanggal}
+        onChange={(e) => setTanggal(e.target.value)}
+      />
+      {errors.tanggal && <p className="text-red-500 text-sm mt-1">{errors.tanggal}</p>}
     </div>
     ) : (
       <div>
